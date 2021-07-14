@@ -2,7 +2,7 @@ const router = require('koa-router')();
 
 router.prefix('/vue2');
 
-router.get('/car/list', function (ctx, next) {
+router.get('/new/list', function (ctx, next) {
   ctx.body = [
     {
       img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1695163309,2577846378&fm=26&gp=0.jpg',
@@ -73,6 +73,97 @@ router.get('/car/list', function (ctx, next) {
       number: '3026',
       type: '导购',
       status: true,
+    },
+  ];
+});
+router.get('/rank/list', function (ctx, next) {
+  ctx.body = [
+    {
+      name: '哈弗H6',
+      number: '1111',
+      time: '近1年',
+    },
+    {
+      name: '哈弗H6',
+      number: '1111',
+      time: '近1年',
+    },
+    {
+      name: '哈弗H6',
+      number: '1111',
+      time: '近1年',
+    },
+    {
+      name: '哈弗H6',
+      number: '1111',
+      time: '近1年',
+    },
+    {
+      name: '哈弗H6',
+      number: '1111',
+      time: '近1年',
+    },
+    {
+      name: '哈弗H6',
+      number: '1111',
+      time: '近1年',
+    },
+    {
+      name: '哈弗H6',
+      number: '1111',
+      time: '近1年',
+    },
+    {
+      name: '哈弗H6',
+      number: '1111',
+      time: '近1年',
+    },
+    {
+      name: '哈弗H6',
+      number: '1111',
+      time: '近1年',
+    },
+    {
+      name: '哈弗H6',
+      number: '1111',
+      time: '近1年',
+    },
+  ];
+});
+
+router.get('/car/list', function (ctx, next) {
+  ctx.body = [
+    {
+      img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1695163309,2577846378&fm=26&gp=0.jpg',
+      name: '沃尔沃',
+    },
+    {
+      img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1695163309,2577846378&fm=26&gp=0.jpg',
+      name: '沃尔沃',
+    },
+    {
+      img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1695163309,2577846378&fm=26&gp=0.jpg',
+      name: '沃尔沃',
+    },
+    {
+      img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1695163309,2577846378&fm=26&gp=0.jpg',
+      name: '沃尔沃',
+    },
+    {
+      img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1695163309,2577846378&fm=26&gp=0.jpg',
+      name: '沃尔沃',
+    },
+    {
+      img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1695163309,2577846378&fm=26&gp=0.jpg',
+      name: '沃尔沃',
+    },
+    {
+      img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1695163309,2577846378&fm=26&gp=0.jpg',
+      name: '沃尔沃',
+    },
+    {
+      img: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1695163309,2577846378&fm=26&gp=0.jpg',
+      name: '沃尔沃',
     },
   ];
 });

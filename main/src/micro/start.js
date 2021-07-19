@@ -1,15 +1,26 @@
 import { setList, getList } from './const/subApps';
 import { currentApp } from './utils';
 import { rewriteRouter } from './router/rewriteRouter';
+import { setMainLifeCycle } from './const/mainLifeCycle';
 
 // 实现路由拦截
 rewriteRouter();
 
 /**
  * 将子应用注册到微前端框架中
+ *
+ * @param {*} appList
+ * @param {*} lifeCycle
  */
-export const registerMicroApps = (appList) => {
+export const registerMicroApps = (appList, lifeCycle) => {
   setList(appList);
+
+  lifeCycle.beforeLoad[0]();
+  setTimeout(() => {
+    lifeCycle.mounted[0]();
+  }, 3000);
+
+  setMainLifeCycle(lifeCycle);
 };
 
 /**
@@ -31,7 +42,10 @@ export const start = () => {
 
     const url = pathname + hash;
 
-    window.history.pushState('', '', url); // 该方法已做改写，会触发其他事件
+    // 重新push一遍，用来触发turnApp这个方法(pushState已被重写)
+    window.history.pushState('', '', url);
+
+    // 标识当前运行的子应用
     window.__CURRENT_SUB_APP__ = app.activeRule;
   }
 };

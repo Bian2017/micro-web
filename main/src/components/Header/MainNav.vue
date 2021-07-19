@@ -46,9 +46,10 @@ import { useRouter, useRoute } from 'vue-router';
 export default {
   name: 'nav',
   setup() {
-    const router = useRouter();
+    const router = useRouter(); // 返回router实例
     const route = useRoute();
 
+    // 监听route变化，解决导航栏的跳转
     watch(
       route,
       (val) => {
@@ -80,8 +81,12 @@ export default {
     };
 
     const setCurrentIndex = (item) => {
+      if (item.url === route.fullPath) {
+        // 路由不变则不跳转
+        return;
+      }
+
       router.push(`${item.url}`);
-      // headerState.setCurrentIndex(index);
     };
 
     return {

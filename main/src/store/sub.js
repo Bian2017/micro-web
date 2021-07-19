@@ -1,12 +1,12 @@
 import * as loading from './loading';
-import * as appInfo from '../store';
+import * as appInfo from '.';
 
 /**
  * 创建子应用的所有信息
  */
 export const navList = [
   {
-    name: 'react15', // 唯一的Key值
+    name: 'react15', // 唯一的Key值，子应用的唯一标识
     entry: '//localhost:9002/', // 告诉主应用去哪个入口获取子应用的文件
     loading,
     container: '#micro-container', // 渲染容器：告知子应用在哪个容器中进行显示

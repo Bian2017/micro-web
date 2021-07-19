@@ -5,4 +5,6 @@ let list = [];
 
 export const getList = () => list;
 
-export const setList = (appList) => (list = appList);
+export const setList = (appList) => {
+  list = appList;
+};

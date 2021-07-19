@@ -2,8 +2,8 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 
-import { navList } from './store/leftNav';
-import { registerApp } from './utils/startMicroApp';
+import { navList } from './store/sub';
+import { registerApp } from './utils';
 
 // 注册、加载、启动子应用
 registerApp(navList);

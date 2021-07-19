@@ -1,11 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
+
 const routes = [
   {
     path: '/',
     component: () => import('../App.vue'),
   },
   {
-    path: '/react15',
+    path: '/react15', // 请求不同的路径，返回的都是App.vue
     component: () => import('../App.vue'),
   },
   {
@@ -22,9 +23,10 @@ const routes = [
   },
 ];
 
-const router = (basename = '') => createRouter({
-  history: createWebHistory(basename),
-  routes,
-});
+const router = (basename = '') =>
+  createRouter({
+    history: createWebHistory(basename),
+    routes,
+  });
 
 export default router;

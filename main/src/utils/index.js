@@ -9,6 +9,7 @@ export const registerApp = (list) => {
   registerMicroApps(list, {
     beforeLoad: [
       () => {
+        // To do: 进行权限控制
         loading.openLoading();
         console.log('开始加载');
       },

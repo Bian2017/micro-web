@@ -1,4 +1,5 @@
 import { fetchResource } from '../utils/fetchResource';
+import { performScriptForEval } from '../utils/performScript';
 
 /**
  * 加载HTML的方法
@@ -19,6 +20,10 @@ export const loadHTML = async (app) => {
   ct.innerHTML = dom;
 
   console.log('scripts:', scripts);
+
+  scripts.forEach((item) => {
+    performScriptForEval(item);
+  });
 
   return app;
 };

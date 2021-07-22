@@ -31,13 +31,13 @@ export const beforeLoad = async (app) => {
 };
 
 export const mounted = async (app) => {
-  app?.mounted?.();
+  app?.mount?.();
 
   await runMainLifeCycle('mounted');
 };
 
 export const destroyed = async (app) => {
-  app?.destroyed?.();
+  app?.unmount?.();
 
   // 对应执行以下主应用的生命周期
   await runMainLifeCycle('destroyed');

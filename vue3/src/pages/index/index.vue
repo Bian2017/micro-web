@@ -11,11 +11,10 @@
 </template>
 
 <script lang="ts">
-import { main } from '../../utils/global'
-import NavTitle from './components/navTitle.vue'
-import IndexAd from './components/ad.vue'
-import CarSwapper from './components/carSwapper.vue'
-import NewsList from './components/newsList.vue'
+import NavTitle from './components/navTitle.vue';
+import IndexAd from './components/ad.vue';
+import CarSwapper from './components/carSwapper.vue';
+import NewsList from './components/newsList.vue';
 
 export default {
   name: 'index',
@@ -25,20 +24,15 @@ export default {
     CarSwapper,
     NewsList,
   },
-  setup() {
-    if (main.appInfo) {
-      main.appInfo.crumbsState.setCrumbs([])
-    }
-  },
 };
 </script>
 
 <style lang="scss">
-.index{
-  &-container{
+.index {
+  &-container {
     width: 100%;
   }
-  &-content{
+  &-content {
     width: 1200px;
     margin: 40px auto 0;
   }

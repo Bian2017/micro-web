@@ -11,8 +11,12 @@ export const lifeCycle = async () => {
 
   if (!nextApp) return;
 
-  if (prevApp && prevApp.destroyed) {
-    await destroyed();
+  if (prevApp && prevApp.unmount) {
+    if (prevApp.proxy) {
+      prevApp.proxy.inactive(); // 销毁沙箱
+    }
+
+    await destroyed(prevApp);
   }
 
   const app = await beforeLoad(nextApp);

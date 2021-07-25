@@ -1,5 +1,5 @@
-import * as loading from './loading';
-import * as appInfo from '.';
+import * as loading from '../store/loading';
+import * as appInfo from '../store';
 
 /**
  * 创建子应用的所有信息
@@ -11,7 +11,7 @@ export const navList = [
     loading,
     container: '#micro-container', // 渲染容器：告知子应用在哪个容器中进行显示
     activeRule: '/react15', // 子应用激活规则
-    appInfo,
+    appInfo, // 将主应用的store传递给子应用
   },
   {
     name: 'react16',

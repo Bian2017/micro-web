@@ -1,9 +1,6 @@
 // 添加loading状态
 export * as loading from './loading';
 
-// 左侧导航数据
-export * as navList from './sub';
-
 // 头部数据
 export * as headerState from './header';
 

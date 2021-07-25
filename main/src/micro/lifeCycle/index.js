@@ -35,7 +35,10 @@ export const beforeLoad = async (app) => {
 };
 
 export const mounted = async (app) => {
-  app?.mount?.();
+  app?.mount?.({
+    appInfo: app.appInfo, // 将主应用的状态传给子应用
+    entry: app.entry,
+  });
 
   await runMainLifeCycle('mounted');
 };

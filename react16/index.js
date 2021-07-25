@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BasicMap from './src/router';
-import { setMain } from './src/utils/global'
+import { setMain } from './src/utils/main';
 
 import './index.scss';
 
@@ -18,7 +18,8 @@ export async function bootstrap() {
 }
 
 export async function mount(app) {
-  setMain(app)
+  setMain(app);
+  render();
 }
 
 export async function unmount() {

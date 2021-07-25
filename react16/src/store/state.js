@@ -1,4 +1,4 @@
 export const initialState = {
   aa: {},
-  appInfo: 1
-}
+  // appInfo: 1
+};

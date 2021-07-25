@@ -15,7 +15,7 @@ const Login = () => {
     main.appInfo.footerState.changeFooter(false);
 
     main.appInfo.headerState.changeHeader(false);
-    main.appInfo.crumbsState.setCrumbs([]);
+    // main.appInfo.crumbsState.setCrumbs([]);
   }, []);
 
   return (

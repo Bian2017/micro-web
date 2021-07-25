@@ -14,7 +14,9 @@ if (!window.__MICRO_WEB__) {
 }
 
 export async function bootstrap() {
-  console.log('react bootstrap');
+  window.__EVENT_BUS__.emit('bootstrap', {
+    msg: 'react16 bootstrap success',
+  });
 }
 
 export async function mount(app) {

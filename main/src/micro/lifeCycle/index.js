@@ -26,10 +26,10 @@ export const lifeCycle = async () => {
 export const beforeLoad = async (app) => {
   await runMainLifeCycle('beforeLoad');
 
-  app?.beforeLoad?.();
+  app?.bootstrap?.();
 
   const subApp = await loadHTML(app); // 获取子应用的内容
-  subApp?.beforeLoad?.();
+  subApp?.bootstrap?.();
 
   return subApp;
 };

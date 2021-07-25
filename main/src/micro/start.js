@@ -2,6 +2,16 @@ import { setList, getList } from './const/subApps';
 import { currentApp } from './utils';
 import { rewriteRouter } from './router/rewriteRouter';
 import { setMainLifeCycle } from './const/mainLifeCycle';
+import { EVENT_BUS } from './event';
+
+const event_bus = new EVENT_BUS();
+
+event_bus.on('bootstrap', (data) => {
+  console.log('bootstrap event:', data);
+});
+
+// 重要：添加事件总线全局标识
+window.__EVENT_BUS__ = event_bus;
 
 // 实现路由拦截
 rewriteRouter();

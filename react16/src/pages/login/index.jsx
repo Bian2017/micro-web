@@ -11,6 +11,7 @@ const Login = () => {
     if (!main.appInfo) {
       return;
     }
+
     // 登录页面隐藏头部底部
     main.appInfo.footerState.changeFooter(false);
     main.appInfo.headerState.changeHeader(false);

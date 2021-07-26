@@ -3,6 +3,7 @@ import { currentApp } from './utils';
 import { rewriteRouter } from './router/rewriteRouter';
 import { setMainLifeCycle } from './const/mainLifeCycle';
 import { EVENT_BUS } from './event';
+import { prefetch } from './loader/prefetch';
 
 const event_bus = new EVENT_BUS();
 
@@ -58,4 +59,7 @@ export const start = () => {
     // 标识当前运行的子应用
     window.__CURRENT_SUB_APP__ = app.activeRule;
   }
+
+  // 预加载(加载尚未显示的子应用)
+  prefetch();
 };

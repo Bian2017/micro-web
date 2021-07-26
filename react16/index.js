@@ -14,12 +14,16 @@ if (!window.__MICRO_WEB__) {
 }
 
 export async function bootstrap() {
-  window.__EVENT_BUS__.emit('bootstrap', {
-    msg: 'react16 bootstrap success',
-  });
+  console.log('react16 bootstrap');
 }
 
 export async function mount(app) {
+  window.__EVENT_BUS__.on('vue2', (data) => {
+    console.log('react16 event:', data);
+  });
+  window.__EVENT_BUS__.emit('react16', {
+    msg: 'react16 mount success',
+  });
   setMain(app);
   render();
 }

@@ -35,14 +35,20 @@ if (!window.__MICRO_WEB__) {
  * + 生命周期：渲染成功
  * + 生命周期：卸载
  */
-export const boostrap = () => {
-  console.log('开始加载');
-};
+export async function bootstrap() {
+  console.log('vue2 bootstrap');
+}
 
-export const mount = () => {
+export async function mount() {
+  window.__EVENT_BUS__.on('react16', (data) => {
+    console.log('vue2 event:', data);
+    window.__EVENT_BUS__.emit('vue2', {
+      msg: 'vue2 mount success',
+    });
+  });
   render();
-};
+}
 
-export const unmount = () => {
-  console.log('卸载', instance);
-};
+export async function unmount() {
+  console.log('vue2 unmount:', instance);
+}

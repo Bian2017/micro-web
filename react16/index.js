@@ -18,14 +18,22 @@ export async function bootstrap() {
 }
 
 export async function mount(app) {
-  window.__EVENT_BUS__.on('vue2', (data) => {
-    console.log('react16 event:', data);
+  const storeData = window.store.getStore();
+
+  window.store.update({
+    ...storeData,
+    a: 1111,
   });
-  window.__EVENT_BUS__.emit('react16', {
-    msg: 'react16 mount success',
-  });
+
   setMain(app);
   render();
+
+  // window.__EVENT_BUS__.on('vue2', (data) => {
+  //   console.log('react16 event:', data);
+  // });
+  // window.__EVENT_BUS__.emit('react16', {
+  //   msg: 'react16 mount success',
+  // });
 }
 
 export async function unmount() {

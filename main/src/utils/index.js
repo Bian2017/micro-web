@@ -1,5 +1,14 @@
-import { registerMicroApps, start } from '../micro';
+import { createStore, registerMicroApps, start } from '../micro';
 import { loading } from '../store';
+
+const store = createStore();
+
+// 将实例挂载在window对象上
+window.store = store;
+
+store.subscribe((newValue, oldValue) => {
+  console.log('subscribe:', newValue, oldValue);
+});
 
 /**
  * 将子应用注册到主应用里

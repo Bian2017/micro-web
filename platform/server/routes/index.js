@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const childProcess = require('child_process');
 
 const versionDir = path.join(__dirname, '../version'); // 通过本地磁盘模拟线上数据库
 const dftVersion = '1.0.0.0';
@@ -30,7 +31,25 @@ router.get('/', function (req, res, next) {
     fs.writeFileSync(currentAppPath, dftVersion);
   }
 
-  res.send('express !!!');
+  // 构建、打包、发布
+  const originPath = path.join(__dirname, '../../../', name);
+  const originDist = path.join(originPath, 'dist');
+  const bagPath = path.join(__dirname, '../bag');
+
+  try {
+    // 通过运行打包命令来创建对应的打包产物
+    childProcess.execSync(`cd ${originPath} && yarn && npm run build`);
+    childProcess.execSync(`cd ${bagPath} && mkdir -p ./${name}/${newVersion}`);
+
+    const appDist = path.join(bagPath, `./${name}/${newVersion}`);
+    childProcess.execSync(`mv ${originDist}/* ${appDist}`);
+
+    // To do: 后续只需将打包产物发布到OSS平台上即可
+  } catch (e) {
+    console.log('e:', e);
+  }
+
+  res.send({ version: newVersion });
 });
 
 module.exports = router;
